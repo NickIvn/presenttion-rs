@@ -4,20 +4,285 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>What is Angular</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
 		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="./css/styles.css">
+
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="icon" href="./public/images/angular-logo.png">
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h2>What is Angular</h2>
+					<img class="logo" src="./public/images/angular-logo.png">
+				</section>
+				<section>
+						<p class="intro-list-item"><img class="icon" src="./public/images/feature-icon.svg">ANY APP SIZE</p>
+						<p class="intro-list-item fragment fade-up"><img class="icon" src="./public/images/feature-icon.svg">A GREAT COMMUNITY</p>
+						<p class="intro-list-item fragment fade-up"><img class="icon" src="./public/images/feature-icon.svg">BUILD PRODUCTIVELY</p>
+						<p class="intro-list-item fragment fade-up"><img class="icon" src="./public/images/feature-icon.svg">FOR EVERYONE, EVERYWHERE</p>
+				</section>
+				<section>
+					<h3>Angular is a development platform, built on Typescript</h3>
+					<ul>
+						<li class="fragment fade-up">A component-based framework for building scalable web applications</li>
+						<li class="fragment fade-up">A collection of well-integrated libraries that cover a wide variety of features, including routing, forms management, client-server communication, and more</li>
+						<li class="fragment fade-up">A suite of developer tools to help you develop, build, test, and update your code</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Concepts</h3>
+					<ul>
+						<li class="fragment fade-up">JavaScript Classes</li>
+						<li class="fragment fade-up">TypeScript fundamentals</li>
+						<li class="fragment fade-up">TypeScript Decorators</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Tools</h3>
+					<ul>
+						<li class="fragment fade-up">TypeScript</li>
+						<li class="fragment fade-up">Command Line Interfase (CLI)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Components</h3>
+					<ul>
+						<li class="fragment fade-up">A decorator to define configuration options for things like:</li>
+						<ul>
+							<li class="fragment fade-up">A selector that defines what the tag name is when referring a component in a template</li>
+							<li class="fragment fade-up">An HTML template that controls what is rendered to the browser</li>
+						</ul>
+						<li class="fragment fade-up">A TypeScript class that defines the behavior of the component. Examples include handling user input, managing state, defining methods, etc.</li>
+					</ul>
+				</section>
+				<section>
+					<pre class="pre-example"><code class="code-example">
+	// 📄 todo-list-item.component.ts
+	@Component({
+		standalone: true,
+		selector: 'todo-list-item',
+		template: ` <li>(TODO) Read cup of coffee introduction</li> `,
+		styles: ['li { color: papayawhip; }'],
+	})
+	export class TodoListItem {
+		/* Component behavior is defined in here */
+	}
+					</code></pre>
+				</section>
+				<section data-auto-animate>
+					<pre data-id="code-animation"><code>
+		// 📄 todo-list-item.component.ts
+		@Component({ ... })
+		export class TodoList {
+			taskTitle = '';
+			isComplete = false;
+		}
+					</code></pre>
+				</section>
+				<section data-auto-animate>
+					<pre data-id="code-animation"><code>
+		// 📄 todo-list-item.component.ts
+		@Component({ ... })
+		export class TodoList {
+			taskTitle = '';
+			isComplete = false;
+
+			updateTitle(newTitle: string) {
+				this.taskTitle = newTitle;
+			}
+
+			completeTask() {
+				this.isComplete = true;
+			}
+		}
+					</code></pre>
+				</section>
+				<section data-auto-animate>
+					<p data-id="code-title">Rendering Dynamic Data</p>
+					<pre data-id="code-animation"><code>
+						@Component({
+							template: ` <p>Title: {{ taskTitle }}</p> `,
+						})
+						export class TodoListItem {
+							taskTitle = 'Read cup of coffee';
+						}
+					</code></pre>
+				</section>
+				<section data-auto-animate>
+					<p data-id="code-title">Rendering Dynamic Data</p>
+					<pre data-id="code-animation"><code>
+						@Component({
+							template: ` <p>Title: {{ taskTitle }}</p> `,
+						})
+						export class TodoListItem {
+							taskTitle = 'Read cup of coffee';
+						}
+					</code></pre>
+					<p>This is how it renders to the page.</p>
+					<pre><code>
+						<p>Title: Read cup of coffee</p>
+					</code></pre>
+				</section>
+				<section data-auto-animate>
+					<p>Dynamic Properties and Attributes</p>
+					<pre class="fragment fade-up"><code>
+		<button [disabled]="hasPendingChanges"></button>
+					</code></pre>
+					<pre class="fragment fade-up"><code>
+		<button (click)="saveChanges()">Save Changes</button>
+					</code></pre>
+					<pre class="fragment fade-up"><code>
+		<button (click)="saveChanges($event)">Save Changes</button>
+					</code></pre>
+				</section>
+				<section>
+					<h3>Styles</h3>
+					<pre><code>
+	@Component({
+		selector: 'profile-pic',
+		template: `<img src="profile-photo.jpg" alt="photo" />`,
+		styles: [
+			`
+				img {
+					border-radius: 50%;
+				}
+			`,
+		],
+	})
+	export class ProfilePic {
+		/* Your code goes here */
+	}
+					</code></pre>
+				</section>
+				<section>
+					<p>Conditional rendering</p>
+					<pre><code>
+				<section class="admin-controls" *ngIf="hasAdminPrivileges">
+					The content you are looking for is here.
+				</section>
+					</code></pre>
+				</section>
+				<section>
+					<p>Rendering a list</p>
+					<pre><code>
+						<ul class="ingredient-list">
+							<li *ngFor="let task of taskList">{{ task }}</li>
+						</ul>
+					</code></pre>
+				</section>
+				<section data-auto-animate>
+					<p data-id="code-title">Custom directives</p>
+					<pre data-id="code-animation"><code>
+	@Directive({
+		selector: '[appHighlight]',
+	})
+	export class HighlightDirective {
+		private el = inject(ElementRef);
+		constructor() {
+			this.el.nativeElement.style.backgroundColor = 'yellow';
+		}
+	}
+					</code></pre>
+				</section>
+				<section data-auto-animate>
+					<p data-id="code-title">Custom directives</p>
+					<pre data-id="code-animation"><code>
+	@Directive({
+		selector: '[appHighlight]',
+	})
+	export class HighlightDirective {
+		private el = inject(ElementRef);
+		constructor() {
+			this.el.nativeElement.style.backgroundColor = 'yellow';
+		}
+	}
+					</code></pre>
+					<p>The directive is called by adding it as an attribute.</p>
+					<pre><code>
+		<p appHighlight>Look at me!</p>
+					</code></pre>
+				</section>
+				<section>
+					<p>Organization</p>
+					<pre><code>
+		import {NgModule} from '@angular/core';
+		import {FormsModule} from '@angular/forms';
+		import {TodoList} from '../todo/todo-list.component';
+
+		@NgModule({
+			declarations: [TodoList],
+			imports: [FormsModule],
+			exports: [TodoList, FormsModule],
+		})
+		export class TodoModule {}
+					</code></pre>
+				</section>
+				<section>
+					<pre><code>
+		import {FormsModule} from '@angular/forms';
+		import {TodoList} from '../todo/todo-list.component';
+
+		@Component({
+			standalone: true,
+			selector: 'todo-app',
+			imports: [FormsModule, TodoList],
+			template: ` ... <todo-list [tasks]="taskList"></todo-list> `,
+		})
+		export class PhotoGalleryComponent {
+			// component logic
+}
+					</code></pre>
+				</section>
+				<section>
+					<p>Command Line Interface (CLI)</p>
+					<table class="cli-table">
+						<tr>
+							<th>Command</th>
+							<th>Details</th>
+						</tr>
+						<tr>
+							<td><pre><code>ng build</code></pre></td>
+							<td>Compiles an Angular application into an output directory.</td>
+						</tr>
+						<tr>
+							<td><pre><code>ng serve</code></pre></td>
+							<td>Builds and serves your application, rebuilding on file changes.</td>
+						</tr>
+						<tr>
+							<td><pre><code>ng generate</code></pre></td>
+							<td>Generates or modifies files based on a schematic.</td>
+						</tr>
+						<tr>
+							<td><pre><code>ng test</code></pre></td>
+							<td>Runs unit tests on a given project.</td>
+						</tr>
+						<tr>
+							<td><pre><code>ng e2e</code></pre></td>
+							<td>Builds and serves an Angular application, then runs end-to-end tests.</td>
+						</tr>
+					</table>
+				</section>
+				<section>
+					<h3>Next steps</h3>
+					<p>To see Angular in action, see the <a href="https://angular.io/start">Getting Started</a> tutorial.</p>
+					<p>More about how you can build apps with Angular, check out the following resources:</p>
+					<ul>
+						<li><a href="https://angular.io/tutorial/first-app">Tutorials</a></li>
+						<li><a href="https://angular.io/guide/developer-guide-overview">In-Depth Guides</a></li>
+
+					</ul>
+				</section>
+				<section>
+					<h3>Thank you for your attention</h3>
+				</section>
 			</div>
 		</div>
 

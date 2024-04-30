@@ -1,0 +1,48 @@
+section {
+  width: fit-content;
+  height: fit-content;
+  overflow: visible;
+}
+
+p {
+  text-align:left;
+  padding-left: 40px;
+}
+
+li {
+  margin-bottom: 15px;
+}
+
+.logo {
+  width: 400px;
+}
+
+.intro-list {
+  display: flex;
+  align-items: center;
+}
+
+.intro-list-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+}
+
+.icon {
+  width: 50px;
+}
+
+.cli-table {
+  font-size: 32px;
+}
+
+.pre-example {
+  overflow: visible;
+  width: 100%;
+  height: 100%;
+}
+
+.code-example {
+  overflow: visible;
+}
